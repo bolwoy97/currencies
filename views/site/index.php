@@ -25,9 +25,9 @@
                 
                 <form class="form-inline" action="" method="post" id="dateForm">
                 <h4 class="col-md-1">Dates:</h4>
-                 <select name="date">
+                 <select onchange="getTable(this.value);" name="date">
                         <?foreach($days_ago as $day_ago):?>
-                        <option <?=($date==$day_ago)?'selected':''?> onclick="getTable(this.value);" value="<?=$day_ago?>">
+                        <option <?=($date==$day_ago)?'selected':''?> value="<?=$day_ago?>">
                             <?=$day_ago?></option>
                         <?endforeach;?>
                     </select>

@@ -2,9 +2,9 @@
 /*
 return array(
     'host' => 'localhost',
-    'dbname' => 'leonsoft',
-    'user' => 'leonsoft',
-    'password' => 'Dtkbrbq97',            
+    'dbname' => '95744',
+    'user' => '95744',
+    'password' => 'dtkbrbq97',            
 );
 */
 
