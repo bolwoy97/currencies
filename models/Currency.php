@@ -70,6 +70,15 @@ class Currency
       return $res;
 }
 
+public static function delete($from, $to){
+  $db = Db::getConnection();
+  $sql = 'DELETE  FROM currency WHERE date >= :from AND date <= :to ';
+  $result = $db->prepare($sql);
+  $result->bindParam(':from', $from, PDO::PARAM_STR);
+  $result->bindParam(':to', $to, PDO::PARAM_STR);
+    return $result->execute();
+}
+
 public static function get($date){
   $db = Db::getConnection();
   $sql = 'SELECT *  FROM currency WHERE  date = :date ';

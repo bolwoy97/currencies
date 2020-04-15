@@ -27,7 +27,7 @@
                 <h4 class="col-md-1">Dates:</h4>
                  <select onchange="getTable(this.value);" name="date">
                         <?foreach($days_ago as $day_ago):?>
-                        <option <?=($date==$day_ago)?'selected':''?> value="<?=$day_ago?>">
+                        <option <?=($cur_date==$day_ago)?'selected':''?> value="<?=$day_ago?>">
                             <?=$day_ago?></option>
                         <?endforeach;?>
                     </select>
@@ -48,7 +48,7 @@
                             </tr>
                         </thead>
                         <tbody id="table">
-                            <?require_once(ROOT.'/views/layouts/table.php');?>
+
                         </tbody>
                     </table>
                 </div>
@@ -60,13 +60,13 @@
     <script>
     function getTable(date) {
         var params={
-            date: date,
-            table:true
+            date: date
         }
-        $.post("/",params, function(data) {
+        $.post("/table",params, function(data) {
             $("#table").html(data);
         });
     }
+    $( document ).ready(getTable('<?=$cur_date?>'));
     </script>
 
 
